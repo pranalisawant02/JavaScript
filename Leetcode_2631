@@ -1,0 +1,16 @@
+Array.prototype.groupBy = function (fn) {
+  const result = {};
+
+  for (let i = 0; i < this.length; i++) {
+    const item = this[i];
+    const key = fn(item);   // key is a string
+
+    if (!result[key]) {
+      result[key] = [];
+    }
+
+    result[key].push(item);
+  }
+
+  return result;
+};
