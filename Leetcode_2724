@@ -1,0 +1,12 @@
+/**
+ * @param {Array} arr
+ * @param {Function} fn
+ * @return {Array}
+ */
+var sortBy = function(arr, fn) {
+     return arr
+        .map(item => [item, fn(item)])
+        .sort((a, b) => a[1] - b[1])
+        .map(pair => pair[0]);
+
+};
