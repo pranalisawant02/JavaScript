@@ -1,0 +1,27 @@
+var compactObject = function(obj) {
+    
+    if (Array.isArray(obj)) {
+        // Process array
+        return obj
+            .map(compactObject)          // recursively compact
+            .filter(Boolean);            // remove falsy
+    }
+    
+    else if (obj !== null && typeof obj === "object") {
+        // Process object
+        let result = {};
+        
+        for (let key in obj) {
+            let value = compactObject(obj[key]); // recursive call
+            
+            if (Boolean(value)) {
+                result[key] = value;
+            }
+        }
+        
+        return result;
+    }
+    
+    // Primitive value
+    return obj;
+};
