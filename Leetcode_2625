@@ -1,0 +1,16 @@
+var flat = function(arr, n) {
+    const result = [];
+
+    function helper(currentArr, depth) {
+        for (let el of currentArr) {
+            if (Array.isArray(el) && depth < n) {
+                helper(el, depth + 1); // go deeper
+            } else {
+                result.push(el); // push as is
+            }
+        }
+    }
+
+    helper(arr, 0);
+    return result;
+};
