@@ -1,0 +1,15 @@
+class ArrayWrapper {
+    constructor(nums) {
+        this.nums = nums;
+    }
+
+    // Used when performing obj1 + obj2
+    valueOf() {
+        return this.nums.reduce((sum, num) => sum + num, 0);
+    }
+
+    // Used when calling String(obj)
+    toString() {
+        return `[${this.nums.join(',')}]`;
+    }
+}
